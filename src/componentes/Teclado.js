@@ -7,6 +7,10 @@ export default class Teclado extends Component {
     render() {
         return(
             <div>
+                <button className="btn btn-secondary" name="MR" onClick={this.buttonPressed}>MR</button>
+                <button className="btn btn-secondary" name="MC" onClick={this.buttonPressed}>MC</button>
+                <button className="btn btn-secondary" name="M+" onClick={this.buttonPressed}>M+</button>
+                <button className="btn btn-secondary" name="M-" onClick={this.buttonPressed}>M-</button>
                 <button name="7" onClick={this.buttonPressed}>7</button>
                 <button name="8" onClick={this.buttonPressed}>8</button>
                 <button name="9" onClick={this.buttonPressed}>9</button>
