@@ -2,19 +2,23 @@ button {
   display: inline-block;
   width: 60px;
   height: 60px;
+  margin: 2px;
 }
 .btn-warning {
-  width: 240px;
-}
-.btn-secondary{
-  font-weight: bold;
-  font-size: 20px;
+  width: 188px;
 }
 .App {
-  width: 245px;
+  width: 500px;
   text-align: right;
   margin: 20px auto;
   border: 1px solid black;
+  display: grid;
+  grid-template-areas: "bx1 bx2";
+  grid-template-columns: 60% 40%;
+}
+.memoria {
+  text-align: center;
+  vertical-align: middle;
 }
 .display {
   height: 23px;
