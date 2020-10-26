@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Teclado from "./componentes/Teclado.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+function Display(props) {
+  return(
+    <div className="display">
+        <p>{props.result}</p>
     </div>
   );
 }
 
+class App extends Component {
+  state = {
+    result: '',
+    valor: ''
+  }
+
+  buttonPressed = buttonName => {
+    if (buttonName === '*' || buttonName === '/' || buttonName === '+' || buttonName === '-' || buttonName === '='){
+      this.setState({
+        valor: this.state.result + buttonName
+      })
+    }
+    if (buttonName === 'AC'){
+      this.setState({
+        valor: this.state.valor + this.state.result,
+        result: ''
+      })
+    } else if(buttonName === '='){
+          this.calculate()
+        } else
+          this.setState({
+            result: this.state.result + buttonName
+          });
+  };
+
+  calculate = () => {
+    this.setState({
+      result: eval(this.state.result)
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Display className="display" result={this.state.valor}/>
+        <Display className="display" result={this.state.result}/>
+        <Teclado buttonPressed={this.buttonPressed}/>
+      </div>
+    );
+  }
+}
 export default App;
